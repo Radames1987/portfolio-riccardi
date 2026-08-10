@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ing. Radames Riccardi — Studio di Ingegneria | Strutture, Direzione Lavori, Sicurezza</title>
+<meta name="description" content="Ing. Radames Riccardi, ingegnere civile — strutture e geotecnica. Progettazione, direzione dei lavori, collaudo e coordinamento della sicurezza per enti pubblici e committenza privata. Caivano (NA) - Tortora (CS).">
+<meta name="theme-color" content="#0A1727">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ing. Radames Riccardi — Studio di Ingegneria">
+<meta property="og:description" content="Progettazione strutturale, direzione dei lavori e coordinamento della sicurezza.">
+<meta property="og:image" content="img/logo-riccardi.png">
+<link rel="icon" href="img/monogramma-riccardi.png">
+<link rel="apple-touch-icon" href="img/monogramma-riccardi.png">
+
+<!-- Riccardi — Studio di Ingegneria, sito one-page.
+Da fare: link LinkedIn in Contatti · versione del CV senza dati personali sensibili
+· laurea magistrale LM-48 da aggiungere a conseguimento · consenso dei committenti
+privati per le foto pubblicate (lavori "UMI 50" e "Praia a Mare") -->
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#10233C;
+  --navy-deep:#0A1727;
+  --panel:#162C48;
+  --gold:#C9A24C;
+  --gold-lt:#E8CE93;
+  --ivory:#EFEBE2;
+  --muted:#9AA9BD;
+  --hair:rgba(201,162,76,.26);
+  --hair-soft:rgba(239,235,226,.14);
+  --rail:32px;
+  --pad:22px;
+  --display:'Cormorant Garamond',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --ui:'Jost',system-ui,sans-serif;
+}
+@media (min-width:820px){ :root{ --rail:84px; --pad:56px; } }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--navy);color:var(--ivory);
+  font-family:var(--body);font-size:17px;line-height:1.72;font-weight:300;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+
+/* ======================= rail ======================= */
+.rail{position:fixed;left:0;top:0;bottom:0;width:var(--rail);z-index:40;
+  background:var(--navy-deep);border-right:1px solid var(--hair);
+  display:flex;flex-direction:column;justify-content:center}
+.rail::before{content:"";position:absolute;left:calc(var(--rail)/2);top:56px;bottom:56px;
+  width:1px;background:var(--hair-soft)}
+.rail-item{position:relative;display:flex;align-items:center;gap:10px;padding:8px 0;
+  text-decoration:none;color:var(--muted)}
+.rail-tick{position:relative;z-index:1;margin-left:calc(var(--rail)/2 - 6px);
+  width:12px;height:1px;background:var(--hair-soft);
+  transition:width .3s ease,background .3s ease}
+.rail-item.is-active .rail-tick{width:24px;background:var(--gold)}
+.rail-label{display:none;font-family:var(--ui);font-weight:300;font-size:9.5px;
+  letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;transition:color .3s ease}
+.rail-item.is-active .rail-label{color:var(--gold-lt)}
+@media (min-width:820px){ .rail-label{display:block} .rail-item{padding:10px 0} }
+
+/* ======================= impaginato ======================= */
+.shell{margin-left:var(--rail)}
+section{padding:76px var(--pad)}
+@media (min-width:820px){ section{padding:128px 64px} }
+.wrap{max-width:860px;margin:0 auto}
+.alt{background:var(--navy-deep)}
+
+.eyebrow{font-family:var(--ui);font-weight:300;font-size:10px;letter-spacing:.34em;
+  text-transform:uppercase;color:var(--gold);margin:0 0 26px;
+  display:flex;align-items:center;gap:16px}
+.eyebrow::before,.eyebrow::after{content:"";height:1px;background:var(--hair);flex:1}
+.eyebrow::before{max-width:26px}
+
+h2{font-family:var(--display);font-weight:300;font-size:clamp(31px,8.4vw,50px);
+  line-height:1.12;margin:0 0 22px;color:var(--ivory)}
+h2 em{font-style:normal;color:var(--gold-lt)}
+h3{font-family:var(--display);font-weight:500;font-size:23px;line-height:1.24;margin:0 0 10px}
+p{margin:0 0 18px;max-width:60ch}
+.lead{font-size:18.5px;line-height:1.75}
+.muted{color:var(--muted);font-size:15.5px}
+.note{font-family:var(--ui);font-weight:300;font-size:12px;letter-spacing:.06em;color:var(--muted);line-height:1.9}
+
+/* ======================= hero ======================= */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  align-items:center;text-align:center;position:relative;
+  background:radial-gradient(120% 80% at 50% 18%,#173151 0%,var(--navy) 46%,var(--navy-deep) 100%);
+  padding:96px var(--pad) 104px}
+.guides{position:absolute;inset:0;pointer-events:none}
+.guides line{stroke:var(--gold);stroke-width:.6;opacity:.28}
+.hero-inner{position:relative;z-index:1;max-width:600px}
+.logo{width:min(78vw,440px);height:auto;margin:0 auto 34px;object-fit:contain}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(29px,7.6vw,46px);
+  line-height:1.14;letter-spacing:.012em;margin:0 0 14px}
+.hero .role{font-family:var(--ui);font-weight:300;font-size:11px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--gold);margin:0 0 26px;line-height:2.1}
+.rule{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 0 26px}
+.rule::before,.rule::after{content:"";height:1px;width:38px;background:var(--hair)}
+.rule span{font-family:var(--ui);font-weight:300;font-size:9.5px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--muted)}
+.hero p{color:rgba(239,235,226,.82);max-width:44ch;margin:0 auto 34px;font-size:17px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;
+  font-family:var(--ui);font-weight:400;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  text-decoration:none;border:1px solid var(--gold);color:var(--navy-deep);
+  background:linear-gradient(140deg,var(--gold-lt),var(--gold));
+  transition:transform .2s ease,box-shadow .2s ease,color .2s ease,background .2s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(201,162,76,.18)}
+.btn.ghost{background:none;color:var(--gold-lt);border-color:var(--hair)}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold)}
+.scroll-hint{position:absolute;bottom:34px;left:0;right:0;z-index:1;
+  font-family:var(--ui);font-weight:300;font-size:9.5px;letter-spacing:.26em;
+  text-transform:uppercase;color:rgba(239,235,226,.4)}
+.scroll-hint i{display:block;width:1px;height:34px;background:var(--hair);margin:0 auto 12px}
+
+/* ======================= chi sono ======================= */
+.bio{display:grid;gap:40px}
+@media (min-width:820px){ .bio{grid-template-columns:330px 1fr;gap:60px;align-items:start} }
+.portrait{margin:0;position:relative;padding:12px 0 0 12px}
+.portrait::before{content:"";position:absolute;left:0;top:0;
+  width:calc(100% - 26px);height:calc(100% - 26px);border:1px solid var(--gold);opacity:.5}
+.portrait-img{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--panel)}
+.portrait-img img{width:100%;height:100%;object-fit:cover}
+.claim{position:relative;margin:22px 0 0;padding-top:20px}
+.claim::before{content:"";position:absolute;top:0;left:0;width:38px;height:1px;background:var(--gold)}
+.claim p{font-family:var(--display);font-style:italic;font-weight:300;
+  font-size:clamp(19px,4.4vw,23px);line-height:1.42;color:var(--gold-lt);margin:0 0 12px}
+.claim cite{font-style:normal;font-family:var(--ui);font-weight:300;font-size:9.5px;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+
+.facts{margin:32px 0 0;border-top:1px solid var(--hair-soft)}
+.fact{display:flex;flex-wrap:wrap;gap:4px 18px;padding:14px 0;border-bottom:1px solid var(--hair-soft)}
+.fact dt{flex:0 0 118px;margin:0;font-family:var(--ui);font-weight:300;font-size:10px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--gold);padding-top:5px}
+.fact dd{margin:0;flex:1;min-width:210px;font-size:16px;line-height:1.62}
+
+/* ======================= servizi ======================= */
+.svc{display:grid;border-top:1px solid var(--hair-soft)}
+@media (min-width:820px){ .svc{grid-template-columns:1fr 1fr;column-gap:56px} }
+.svc-item{padding:26px 0;border-bottom:1px solid var(--hair-soft)}
+.svc-item h3{display:flex;align-items:baseline;gap:12px;font-size:21px}
+.svc-item h3::before{content:"";flex:0 0 16px;height:1px;background:var(--gold);transform:translateY(-6px)}
+.svc-item p{margin:0;color:var(--muted);font-size:15.5px;line-height:1.65}
+
+/* ======================= lavori ======================= */
+.works{display:grid;gap:34px}
+.work{border:1px solid var(--hair-soft);background:var(--panel);overflow:hidden}
+.work-img{aspect-ratio:16/10;background:var(--navy-deep)}
+.work-img img{width:100%;height:100%;object-fit:cover}
+.work-body{padding:26px var(--pad) 30px}
+@media (min-width:820px){ .work-body{padding:34px 40px 38px} }
+.tag{font-family:var(--ui);font-weight:300;font-size:9.5px;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+.specs{margin:18px 0 20px;border-top:1px solid var(--hair-soft)}
+.spec{display:flex;gap:16px;padding:9px 0;border-bottom:1px solid var(--hair-soft);font-size:15px}
+.spec b{flex:0 0 38%;font-weight:400;font-family:var(--ui);font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);padding-top:5px}
+.spec span{flex:1}
+.work p{color:rgba(239,235,226,.78);font-size:16px;margin:0 0 20px}
+.more{background:none;border:0;padding:0 0 5px;cursor:pointer;
+  font-family:var(--ui);font-weight:400;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold-lt);border-bottom:1px solid var(--gold)}
+
+/* ======================= cifre ======================= */
+.figures{display:grid;border-top:1px solid var(--hair);margin-top:34px}
+@media (min-width:820px){ .figures{grid-template-columns:1fr 1fr} }
+.fig{padding:34px 0;border-bottom:1px solid var(--hair)}
+@media (min-width:820px){
+  .fig{padding:44px 0}
+  .fig:first-child{padding-right:48px;border-right:1px solid var(--hair)}
+  .fig:last-child{padding-left:48px}
+}
+.fig-label{font-family:var(--ui);font-weight:300;font-size:10px;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+.fig-value{font-family:var(--display);font-weight:400;font-size:clamp(38px,10vw,56px);
+  line-height:1.02;color:var(--gold-lt);margin:0 0 14px}
+.fig-value small{display:block;font-size:.28em;letter-spacing:.22em;text-transform:uppercase;
+  font-family:var(--ui);font-weight:300;color:var(--muted);margin-bottom:8px}
+.fig p{margin:0;font-size:14.5px;color:var(--muted);line-height:1.62}
+.roles{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:30px}
+.roles span{font-family:var(--ui);font-weight:300;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold)}
+
+/* ======================= righe ======================= */
+.rows{border-top:1px solid var(--hair-soft);margin-top:8px}
+.row{display:flex;align-items:center;gap:18px;width:100%;
+  padding:20px 2px;border:0;border-bottom:1px solid var(--hair-soft);
+  background:none;color:inherit;font:inherit;text-align:left;text-decoration:none;cursor:pointer;
+  transition:padding-left .25s ease}
+.row:hover{padding-left:10px}
+.row svg{width:19px;height:19px;stroke:var(--gold);fill:none;stroke-width:1.2;flex:0 0 19px}
+.row-txt{flex:1;min-width:0}
+.row-txt b{display:block;font-family:var(--display);font-weight:400;font-size:20px;line-height:1.3}
+.row-txt span{display:block;font-family:var(--ui);font-weight:300;font-size:12px;
+  letter-spacing:.06em;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row-arrow{color:var(--gold);font-size:15px;font-family:var(--ui)}
+
+/* ======================= footer ======================= */
+footer{background:var(--navy-deep);border-top:1px solid var(--hair);
+  padding:52px var(--pad) 120px;text-align:center}
+@media (min-width:820px){ footer{padding:64px 64px 72px} }
+.footer-mark{width:74px;margin:0 auto 24px;opacity:.9}
+footer p{margin:0 auto 14px;max-width:54ch;font-family:var(--ui);font-weight:300;
+  font-size:12px;letter-spacing:.08em;line-height:2;color:var(--muted)}
+footer b{color:var(--ivory);font-weight:400;letter-spacing:.16em;text-transform:uppercase;font-size:11px}
+footer a{color:var(--gold-lt);text-decoration:none;border-bottom:1px solid var(--hair)}
+
+/* ======================= barra azioni ======================= */
+.actionbar{position:fixed;left:var(--rail);right:0;bottom:0;z-index:45;display:flex;
+  background:rgba(10,23,39,.97);border-top:1px solid var(--hair);
+  padding-bottom:env(safe-area-inset-bottom);
+  transform:translateY(110%);transition:transform .35s ease}
+.actionbar.show{transform:translateY(0)}
+.actionbar a,.actionbar button{flex:1;padding:16px 6px;background:none;border:0;
+  border-right:1px solid var(--hair-soft);color:var(--gold-lt);
+  font-family:var(--ui);font-weight:300;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;text-decoration:none;text-align:center;cursor:pointer}
+.actionbar a:last-child,.actionbar button:last-child{border-right:0}
+@media (min-width:820px){ .actionbar{display:none} }
+
+/* ======================= scheda ======================= */
+.sheet{position:fixed;inset:0;z-index:60;background:rgba(6,14,24,.86);
+  display:none;justify-content:center;align-items:flex-end}
+.sheet.open{display:flex}
+.sheet-inner{background:var(--navy);border-top:1px solid var(--gold);
+  width:100%;max-width:860px;max-height:92svh;overflow-y:auto;
+  padding:22px var(--pad) 52px;animation:rise .3s ease}
+@media (min-width:820px){ .sheet{align-items:center}
+  .sheet-inner{max-height:88svh;padding:44px;border:1px solid var(--hair)} }
+@keyframes rise{from{transform:translateY(26px);opacity:0}to{transform:none;opacity:1}}
+.sheet-close{position:sticky;top:0;float:right;width:38px;height:38px;cursor:pointer;
+  background:var(--navy-deep);border:1px solid var(--hair);color:var(--gold-lt);font-size:17px;line-height:1}
+.sheet h3{font-size:28px;margin:4px 0 16px;font-weight:400}
+.sheet h4{font-family:var(--ui);font-weight:300;font-size:10px;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--gold);margin:30px 0 10px}
+.sheet p{color:rgba(239,235,226,.8);font-size:16px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--navy-deep)}
+
+/* ======================= animazioni ======================= */
+.guides line{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.rise{opacity:0;transform:translateY(16px);animation:up .9s ease forwards}
+.r1{animation-delay:.35s}.r2{animation-delay:.6s}.r3{animation-delay:.8s}
+.r4{animation-delay:1s}.r5{animation-delay:1.2s}
+@keyframes up{to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .guides line{stroke-dashoffset:0;animation:none}
+  .rise{opacity:1;transform:none;animation:none}
+  .reveal{opacity:1;transform:none}
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<nav class="rail" aria-label="Sezioni">
+  <a class="rail-item is-active" href="#top"><i class="rail-tick"></i><span class="rail-label">Studio</span></a>
+  <a class="rail-item" href="#chi-sono"><i class="rail-tick"></i><span class="rail-label">Chi sono</span></a>
+  <a class="rail-item" href="#servizi"><i class="rail-tick"></i><span class="rail-label">Servizi</span></a>
+  <a class="rail-item" href="#lavori"><i class="rail-tick"></i><span class="rail-label">Lavori di punta</span></a>
+  <a class="rail-item" href="#cifre"><i class="rail-tick"></i><span class="rail-label">In cifre</span></a>
+  <a class="rail-item" href="#documenti"><i class="rail-tick"></i><span class="rail-label">Documenti</span></a>
+  <a class="rail-item" href="#contatti"><i class="rail-tick"></i><span class="rail-label">Contatti</span></a>
+</nav>
+
+<div class="shell">
+
+<!-- ============================ HERO ============================ -->
+<header class="hero" id="top">
+  <svg class="guides" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 100 100">
+    <line x1="14" y1="0" x2="14" y2="100" pathLength="1"/>
+    <line x1="86" y1="0" x2="86" y2="100" pathLength="1"/>
+    <line x1="0" y1="17" x2="100" y2="17" pathLength="1"/>
+    <line x1="0" y1="83" x2="100" y2="83" pathLength="1"/>
+  </svg>
+  <div class="hero-inner">
+    <img class="logo rise" src="img/logo-riccardi.png" alt="Riccardi — Studio di Ingegneria" width="1515" height="1038">
+    <h1 class="rise r2">Ing. Radames Riccardi</h1>
+    <p class="role rise r3">Ingegnere civile — strutture e geotecnica<br>Progettazione · Direzione lavori · Sicurezza</p>
+    <div class="rule rise r3"><span>Ordine di Napoli n. 20926 · Sez. A</span></div>
+    <p class="rise r4">Esperienza in opere pubbliche e lavori privati, con incarichi svolti nelle diverse fasi dell’intervento: progettazione e calcolo strutturale, direzione dei lavori, coordinamento della sicurezza e collaudo.</p>
+    <div class="cta-row rise r5">
+      <a class="btn" href="#lavori">I lavori di punta</a>
+      <a class="btn ghost" href="tel:+393478355428">Chiama ora</a>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"><i></i>scorri</div>
+</header>
+
+<!-- ============================ CHI SONO ============================ -->
+<section id="chi-sono" class="alt">
+  <div class="wrap reveal">
+    <p class="eyebrow">Chi sono</p>
+    <div class="bio">
+      <figure class="portrait">
+        <div class="portrait-img">
+          <img src="img/ritratto.jpg" alt="Ritratto dell'Ing. Radames Riccardi" width="1000" height="1250">
+        </div>
+        <figcaption class="claim">
+          <p>La qualità di un'opera si misura molto prima della sua realizzazione: nasce dalla progettazione.</p>
+          <cite>Ing. Radames Riccardi</cite>
+        </figcaption>
+      </figure>
+
+      <div>
+        <h2>Dal calcolo al cantiere, <em>senza passaggi di mano.</em></h2>
+        <p class="lead">Sono ingegnere civile, laureato in Ingegneria Strutturale e Geotecnica alla Federico II di Napoli e iscritto all'Ordine degli Ingegneri della Provincia di Napoli dal 2015.</p>
+        <p>Svolgo attività di progettazione, diagnosi energetica, direzione dei lavori e coordinamento della sicurezza, operando sia per la Pubblica Amministrazione sia per la committenza privata. Per la Pubblica Amministrazione mi occupo, ad esempio, di interventi di edilizia scolastica, riqualificazione e recupero del patrimonio pubblico, bonifiche ambientali, efficientamento energetico (anche della pubblica illluminazione), adeguamento e miglioramento sismico, nonché della redazione di piani comunali di emergenza. Per la committenza privata seguo, ad esempio, interventi di recupero dell’esistente, demolizione e ricostruzione, progettazione di nuove costruzioni, rinforzo strutturale, miglioramento e adeguamento sismico, riqualificazione energetica e interventi integrati sugli edifici.</p>
+        <p class="muted">Dal 2015 al 2022: Ingegnere libero professionista con attività prevalente svolta nel campo del calcolo, progettazione strutturale e direzione dei lavori di opere nuove ed esistenti. Dal 2022 al 2024: ampliamento delle proprie conoscenze nel settore dell’efficientamento energetico. Nel biennio 2023-2024 ho assistito imprese di costruzioni interfacciandomi con i fornitori, in particolare per la gestione delle commesse inerenti gli impianti termici. Dall’inizio del 2024 offro assistenza a colleghi ed imprese per la gestione dei cantieri durante la realizzazione delle opere strutturali, seguendoli dalla progettazione al collaudo. Dal 2025 mi occupo inoltre di collaudi statici di opere strutturali.</p>
+
+        <dl class="facts">
+          <div class="fact"><dt>Laurea</dt><dd>Laurea Magistrale in Ingegneria Strutturale e Geotecnica (LM-23) — Università degli Studi di Napoli Federico II, 110/110 con lode (2014)</dd></div>
+          <div class="fact"><dt>Abilitazione</dt><dd>Esercizio della professione di ingegnere civile e ambientale, sez. A — II sessione 2014</dd></div>
+          <div class="fact"><dt>Ordine</dt><dd>Ordine degli Ingegneri della Provincia di Napoli — n. 20926, sezione A, settore civile e ambientale, dal 27 maggio 2015</dd></div>
+          <div class="fact"><dt>Sicurezza</dt><dd>Coordinatore in fase di progettazione ed esecuzione ed RSPP (D.Lgs. 81/2008) dal 2015, aggiornamento 2024</dd></div>
+          <div class="fact"><dt>Attività</dt><dd>Libero professionista dal 2015</dd></div>
+          <div class="fact"><dt>Strumenti</dt><dd>Disegno 2D/3D: AutoCAD, ArchLine, Edificius · Calcolo strutturale: EdiLus · Calcolo geotecnico: GeoMurus, Midas-GTS · Computi: PriMus · Certificazione energetica: TerMus, Namirial Termo · Sicurezza cantieri: CerTus · Rendering: Artlantis, Lumion · GIS: ArcGIS, QGIS (certificazione AICA); Rilievo: metrolaser Leica con restituzione grafica 2D/3D, drone</dd></div>
+          <div class="fact"><dt>Studio</dt><dd>Via Nazionale, 46 — 87020 Tortora (CS)</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SERVIZI ============================ -->
+<section id="servizi">
+  <div class="wrap reveal">
+    <p class="eyebrow">Servizi</p>
+    <h2>Cosa posso seguire <em>per te.</em></h2>
+    <div class="svc">
+      <div class="svc-item">
+        <h3>Progettazione strutturale e geotecnica</h3>
+        <p>Progettazione e verifica di edifici nuovi ed esistenti in cemento armato, acciaio, muratura e legno. Interventi di miglioramento e adeguamento sismico, consolidamento strutturale, opere di contenimento e opere di messa in sicurezza di strutture precarie.</p>
+      </div>
+      <div class="svc-item">
+        <h3>Direzione dei lavori</h3>
+        <p>Controllo dell'esecuzione, contabilità di cantiere, gestione delle varianti e rapporto costante con impresa e committenza.</p>
+      </div>
+      <div class="svc-item">
+        <h3>Coordinamento della sicurezza</h3>
+        <p>CSP e CSE ai sensi del D.Lgs. 81/2008: piano di sicurezza e coordinamento, verifica dei POS, notifica preliminare, sopralluoghi periodici.</p>
+      </div>
+      <div class="svc-item">
+        <h3>Opere pubbliche</h3>
+        <p>Redazione del progetto di fattibilità tecnico-economica e del progetto esecutivo. Elaborazione di capitolati speciali d’appalto, computi metrici estimativi, elenchi prezzi, quadri economici e documentazione tecnico-amministrativa. Attività di supporto tecnico al Responsabile unico del progetto (RUP).</p>
+      </div>
+      <div class="svc-item">
+        <h3>Efficientamento energetico</h3>
+        <p>Interventi di efficientamento energetico dell’involucro edilizio e degli impianti termici, progettazione di impianti fotovoltaici, gestione delle commesse con fornitori e imprese, predisposizione delle pratiche e della documentazione tecnica.</p>
+      </div>
+      <div class="svc-item">
+        <h3>Pratiche edilizie</h3>
+        <p>CILA, SCIA, permesso di costruire, agibilità, accesso agli atti, verifica dello stato legittimo e pratiche catastali.</p>
+      </div>
+      <div class="svc-item">
+        <h3>Protezione civile e GIS</h3>
+        <p>Redazione e aggiornamento dei Piani Comunali di Emergenza, analisi territoriali e sistemi di supporto alle decisioni in ambiente GIS.</p>
+      </div>
+      <div class="svc-item">
+        <h3>Consulenze tecniche</h3>
+        <p>Consulente tecnico di parte, perizie su vizi e difformità, stime e relazioni tecniche per privati e studi legali.</p>
+      </div>
+      <div class="svc-item">
+        <h3>Impianti energetici e sistemi di accumulo</h3>
+        <p>Progettazione e sviluppo di impianti fotovoltaici di grande potenza, sistemi di accumulo elettrochimico BESS e infrastrutture energetiche connesse. Studi di fattibilità tecnico-economica, progettazione esecutiva, dimensionamento degli impianti, redazione degli elaborati per le opere di connessione alla rete, progettazione delle opere civili, delle strutture di supporto, delle cabine elettriche e delle sottostazioni. Gestione dalle pratiche autorizzative alla realizzazione.</p>
+      </div>
+      <div class="svc-item">
+        <h3>Collaudi, verifiche e assistenza al cantiere</h3>
+        <p>Collaudo statico, verifiche tecniche, controllo della corretta esecuzione, prove di carico e assistenza specialistica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= LAVORI DI PUNTA ========================= -->
+<section id="lavori" class="alt">
+  <div class="wrap reveal">
+    <p class="eyebrow">Lavori di punta</p>
+    <h2>Una selezione di <em>interventi seguiti.</em></h2>
+    <p class="muted" style="margin-bottom:38px">Per ciascun lavoro: località, anno, importo e ruolo svolto. Nella scheda, il problema tecnico affrontato e la soluzione adottata.</p>
+
+    <div class="works">
+
+      <article class="work">
+        <div class="work-img"><img src="img/lavoro-01.jpg" alt="Caserma dei Carabinieri di Mugnano di Napoli — prospetti" loading="lazy"></div>
+        <div class="work-body">
+          <p class="tag">Opere pubbliche · Progettazione</p>
+          <h3>Caserma dei Carabinieri — ristrutturazione e adeguamento impiantistico</h3>
+          <dl class="specs">
+            <div class="spec"><b>Località</b><span>Mugnano di Napoli (NA)</span></div>
+            <div class="spec"><b>Anno</b><span>2024</span></div>
+            <div class="spec"><b>Importo stimato</b><span>€ 1.282.453,00</span></div>
+            <div class="spec"><b>Committente</b><span>Comune di Mugnano di Napoli</span></div>
+            <div class="spec"><b>Ruolo</b><span>Progettazione di fattibilità tecnico-economica ed esecutiva</span></div>
+          </dl>
+          <p>Ristrutturazione e adeguamento impiantistico della caserma di Via Cesare Pavese.</p>
+          <button class="more" data-sheet="l1">Apri la scheda →</button>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="work-img"><img src="img/lavoro-02.jpg" alt="«Tortora, la porta della cultura calabrese»" loading="lazy"></div>
+        <div class="work-body">
+          <p class="tag">Opere pubbliche · Progetto, DL e sicurezza</p>
+          <h3>«Tortora, la porta della cultura calabrese»</h3>
+          <dl class="specs">
+            <div class="spec"><b>Località</b><span>Tortora (CS)</span></div>
+            <div class="spec"><b>Anno</b><span>2021</span></div>
+            <div class="spec"><b>Importo opera</b><span>€ 1.343.907,35 — lavori aggiudicati € 445.582,71</span></div>
+            <div class="spec"><b>Committente</b><span>Comune di Tortora</span></div>
+            <div class="spec"><b>Ruolo</b><span>Progettazione definitiva ed esecutiva, CSP e CSE, direzione dei lavori</span></div>
+          </dl>
+          <p>Incarico completo dalla progettazione alla direzione dei lavori, con coordinamento della sicurezza in entrambe le fasi.</p>
+          <button class="more" data-sheet="l2">Apri la scheda →</button>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="work-img"><img src="img/lavoro-03.jpg" alt="Bonifica dell'ex discarica di località Sicilione, Tortora — fasi di cantiere" loading="lazy"></div>
+        <div class="work-body">
+          <p class="tag">Opere pubbliche · Sicurezza</p>
+          <h3>Messa in sicurezza permanente dell'ex discarica di località Sicilione</h3>
+          <dl class="specs">
+            <div class="spec"><b>Località</b><span>Tortora (CS)</span></div>
+            <div class="spec"><b>Anni</b><span>2016 — 2018</span></div>
+            <div class="spec"><b>Importo finanziato</b><span>€ 1.647.871,57</span></div>
+            <div class="spec"><b>Committente</b><span>Comune di Tortora</span></div>
+            <div class="spec"><b>Ruolo</b><span>Coordinatore per la sicurezza in fase di esecuzione</span></div>
+          </dl>
+          <p>Bonifica tramite messa in sicurezza permanente del sito, con le criticità tipiche dei cantieri su siti contaminati.</p>
+          <button class="more" data-sheet="l3">Apri la scheda →</button>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="work-img"><img src="img/lavoro-04.jpg" alt="Miglioramento sismico di edificio in muratura, Tortora centro storico — ante e post lavori" loading="lazy"></div>
+        <div class="work-body">
+          <p class="tag">Strutture · Miglioramento sismico</p>
+          <h3>Ripristino con miglioramento sismico di edificio in muratura</h3>
+          <dl class="specs">
+            <div class="spec"><b>Località</b><span>Tortora (CS) — centro storico</span></div>
+            <div class="spec"><b>Anni</b><span>2016 — 2019</span></div>
+            <div class="spec"><b>Importo lavori</b><span>€ 313.600,01</span></div>
+            <div class="spec"><b>Committente</b><span>Committenza privata (UMI 50)</span></div>
+            <div class="spec"><b>Ruolo</b><span>Progettazione strutturale, direzione dei lavori, CSE</span></div>
+          </dl>
+          <p>Edificio per civili abitazioni e magazzini danneggiato dal sisma del 9 settembre 1998, classe d'uso 2. Intervento ai sensi della L. 61/98 e della L. 266/99.</p>
+          <button class="more" data-sheet="l4">Apri la scheda →</button>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="work-img"><img src="img/lavoro-05.jpg" alt="Riqualificazione energetica dei villini a Praia a Mare — prima, dopo e lavorazioni" loading="lazy"></div>
+        <div class="work-body">
+          <p class="tag">Privati · Efficienza energetica</p>
+          <h3>Manutenzione straordinaria e interventi di efficienza energetica su villini</h3>
+          <dl class="specs">
+            <div class="spec"><b>Località</b><span>Praia a Mare (CS)</span></div>
+            <div class="spec"><b>Anni</b><span>2021 — 2022</span></div>
+            <div class="spec"><b>Importo totale</b><span>€ 913.687,50</span></div>
+            <div class="spec"><b>Committente</b><span>Committenza privata</span></div>
+            <div class="spec"><b>Ruolo</b><span>Co-progettazione, direzione dei lavori, coordinamento della sicurezza</span></div>
+          </dl>
+          <p>Intervento su più unità, con gestione contemporanea di opere edili e impiantistiche.</p>
+          <button class="more" data-sheet="l5">Apri la scheda →</button>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="work-img"><img src="img/lavoro-06.jpg" alt="Ponte di attraversamento del torrente Fiumarella — fotoinserimenti di progetto" loading="lazy"></div>
+        <div class="work-body">
+          <p class="tag">Opere pubbliche · Progetto di fattibilità tecnico-economica</p>
+          <h3>Ponte di attraversamento del torrente Fiumarella</h3>
+          <dl class="specs">
+            <div class="spec"><b>Località</b><span>Tortora (CS)</span></div>
+            <div class="spec"><b>Anno</b><span>2026</span></div>
+            <div class="spec"><b>Importo totale</b><span>€ 603.394,90</span></div>
+            <div class="spec"><b>Committente</b><span>Comune di Tortora</span></div>
+            <div class="spec"><b>Ruolo</b><span>Progettista per la fattibilità tecnico-economica</span></div>
+          </dl>
+          <p>Progettazione di fattibilità tecnico-economica per un nuovo ponte sul torrente Fiumarella, a collegamento di Via Fiume e Via Benefici. Soluzione a campata unica in acciaio Corten, con carreggiata a due corsie e passerella pedonale laterale.</p>
+          <button class="more" data-sheet="l6">Apri la scheda →</button>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="work-img"><img src="img/lavoro-07.jpg" alt="Messa in sicurezza dell'edificio scolastico di Corso Garibaldi, Tortora" loading="lazy"></div>
+        <div class="work-body">
+          <p class="tag">Opere pubbliche · Sicurezza</p>
+          <h3>Messa in sicurezza e adeguamento dell'edificio scolastico di Corso Garibaldi</h3>
+          <dl class="specs">
+            <div class="spec"><b>Località</b><span>Tortora (CS) — centro storico</span></div>
+            <div class="spec"><b>Anni</b><span>2015 — 2019</span></div>
+            <div class="spec"><b>Finanziamento lavori</b><span>€ 452.000,00</span></div>
+            <div class="spec"><b>Committente</b><span>Comune di Tortora</span></div>
+            <div class="spec"><b>Ruolo</b><span>Coordinatore per la sicurezza in fase di esecuzione</span></div>
+          </dl>
+          <p>Scuola media: agibilità, sicurezza, igiene ed eliminazione delle barriere architettoniche.</p>
+          <button class="more" data-sheet="l7">Apri la scheda →</button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Cifre calcolate sulle commesse elencate nel CV e nelle schede dei lavori pubblici e privati. -->
+<section id="cifre">
+  <div class="wrap reveal">
+    <p class="eyebrow">L'attività in cifre</p>
+    <h2>Progettazione, direzione dei lavori, collaudo e <em>coordinamento della sicurezza.</em></h2>
+    <p class="muted">Importo complessivo delle opere seguite come progettista, direttore dei lavori, collaudatore e coordinatore per la sicurezza.</p>
+
+    <div class="figures">
+      <div class="fig">
+        <p class="fig-label">Pubblica amministrazione</p>
+        <p class="fig-value"><small>oltre</small>€ 5,3 milioni</p>
+        <p>Opere per amministrazioni comunali: edilizia scolastica, bonifiche, riqualificazione urbana, edifici pubblici.</p>
+      </div>
+      <div class="fig">
+        <p class="fig-label">Committenza privata</p>
+        <p class="fig-value"><small>oltre</small>€ 18,5 milioni</p>
+        <p>Lavori per privati e imprese: progettazione, direzione dei lavori e coordinamento della sicurezza per interventi strutturali, edilizi e di efficientamento energetico, oltre la progettazione ed esecuzione di grandi impianti fotovoltaici e delle relative opere civili e infrastrutturali.</p>
+      </div>
+    </div>
+
+    <div class="roles">
+      <span>Progettazione</span>
+      <span>Direzione dei lavori</span>
+      <span>Collaudo</span>
+      <span>Coordinamento della sicurezza</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DOCUMENTI ============================ -->
+<section id="documenti" class="alt">
+  <div class="wrap reveal">
+    <p class="eyebrow">Documenti</p>
+    <h2>Scarica il <em>curriculum.</em></h2>
+    <div class="rows">
+      <a class="row" href="cv/cv-radames-riccardi.pdf" download>
+        <svg viewBox="0 0 24 24"><path d="M12 3v13M8 12l4 4 4-4M4 21h16"/></svg>
+        <span class="row-txt"><b>Curriculum vitae</b><span>PDF · formato europeo · aggiornato al 28.01.2025</span></span>
+        <span class="row-arrow">↓</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTATTI ============================ -->
+<section id="contatti">
+  <div class="wrap reveal">
+    <p class="eyebrow">Contatti</p>
+    <h2>Parliamo del <em>tuo intervento.</em></h2>
+    <p class="lead">Descrivimi in due righe di cosa hai bisogno: ti dirò se è un lavoro che posso seguire, cosa serve per partire e in quanto tempo.</p>
+    <div class="rows">
+      <a class="row" href="tel:+393478355428">
+        <svg viewBox="0 0 24 24"><path d="M5 3h4l2 5-3 2a13 13 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+        <span class="row-txt"><b>Telefono</b><span>347 83 55 428</span></span><span class="row-arrow">→</span>
+      </a>
+      <a class="row" href="https://wa.me/393478355428" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-13 8l-5 1 1-5a9 9 0 1 1 17-4z"/><path d="M8.5 9.5c0 4 2 6 6 6"/></svg>
+        <span class="row-txt"><b>WhatsApp</b><span>Puoi inviarmi anche le foto del problema</span></span><span class="row-arrow">→</span>
+      </a>
+      <a class="row" href="mailto:riccardi.radames@outlook.it">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
+        <span class="row-txt"><b>E-mail</b><span>riccardi.radames@outlook.it</span></span><span class="row-arrow">→</span>
+      </a>
+      <a class="row" href="mailto:radames.riccardi@ingpec.eu">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/><path d="M15.5 3.5l1.8 1.8L21 1.6"/></svg>
+        <span class="row-txt"><b>PEC</b><span>radames.riccardi@ingpec.eu</span></span><span class="row-arrow">→</span>
+      </a>
+      <a class="row" href="https://www.google.com/maps/search/?api=1&query=Via+Nazionale+46+Tortora+CS" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <span class="row-txt"><b>Studio</b><span>Via Nazionale, 46 — 87020 Tortora (CS)</span></span><span class="row-arrow">→</span>
+      </a>
+      <a class="row" href="[LINK_LINKEDIN]" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M4 9h3v11H4zM5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM10 20V9h3v1.6c.7-1.1 1.9-1.8 3.4-1.8 2.5 0 3.6 1.6 3.6 4.4V20h-3v-6c0-1.6-.6-2.4-1.9-2.4-1.2 0-2.1.8-2.1 2.4v6z"/></svg>
+        <span class="row-txt"><b>LinkedIn</b><span>Profilo professionale</span></span><span class="row-arrow">→</span>
+      </a>
+      <button class="row" id="vcard-btn" type="button">
+        <svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><circle cx="9" cy="11" r="2"/><path d="M6 16.5c.6-1.4 1.7-2 3-2s2.4.6 3 2M15 10h4M15 14h4"/></svg>
+        <span class="row-txt"><b>Salva in rubrica</b><span>Scarica la scheda contatto (.vcf)</span></span>
+        <span class="row-arrow">↓</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img class="footer-mark" src="img/monogramma-riccardi.png" alt="" aria-hidden="true">
+  <p><b>Riccardi — Studio di Ingegneria</b></p>
+  <p>Ing. Radames Riccardi · Ingegnere civile<br>
+     Ordine degli Ingegneri della Provincia di Napoli, n. 20926 — sezione A<br>
+     P.IVA 03349790786<br>
+     Via Nazionale, 46 — 87020 Tortora (CS)</p>
+  <p>Le immagini, gli elaborati grafici e i contenuti tecnici pubblicati sono di proprietà dell’Ing. Radames Riccardi o utilizzati sulla base dei relativi diritti di pubblicazione.<br>
+     <a href="#" data-sheet="privacy">Informativa privacy</a> · © <span id="year">2026</span></p>
+</footer>
+
+</div><!-- /shell -->
+
+<div class="actionbar" id="actionbar">
+  <a href="tel:+393478355428">Chiama</a>
+  <a href="https://wa.me/393478355428" target="_blank" rel="noopener">WhatsApp</a>
+  <button type="button" data-vcard>Salva contatto</button>
+</div>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="sheet-inner">
+    <button class="sheet-close" id="sheet-close" aria-label="Chiudi la scheda">×</button>
+    <p class="tag" id="sheet-tag"></p>
+    <h3 id="sheet-title"></h3>
+    <div id="sheet-body"></div>
+  </div>
+</div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------- rail attivo ---------- */
+const railItems = [...document.querySelectorAll('.rail-item')];
+const sections = ['top','chi-sono','servizi','lavori','cifre','documenti','contatti']
+  .map(id => document.getElementById(id));
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const i = sections.indexOf(e.target);
+    railItems.forEach((it, n) => it.classList.toggle('is-active', n === i));
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+sections.forEach(s => s && spy.observe(s));
+
+/* ---------- comparsa in scroll ---------- */
+const reveal = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); reveal.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => reveal.observe(el));
+
+/* ---------- barra azioni ---------- */
+const bar = document.getElementById('actionbar');
+new IntersectionObserver(([e]) => bar.classList.toggle('show', !e.isIntersecting),
+  { threshold: 0.15 }).observe(document.getElementById('top'));
+
+/* ---------- schede dei lavori (contenuto delle finestre di dettaglio) ---------- */
+const schede = {
+  l1: {
+    tag: 'Opere pubbliche · Progettazione',
+    title: 'Caserma dei Carabinieri — Mugnano di Napoli',
+    html: `
+      <h4>L'incarico</h4>
+      <p>Progettazione di fattibilità tecnico-economica ed esecutiva dei lavori di ristrutturazione e adeguamento impiantistico della Caserma dei Carabinieri di Via Cesare Pavese, per il Comune di Mugnano di Napoli. Importo stimato dell'opera: € 1.282.453,00.</p>
+      <h4>Il problema da risolvere</h4>
+      <p>Edificio in esercizio da mantenere operativo, impianti da adeguare, limiti di spesa, tempi del finanziamento.</p>
+      <h4>La soluzione adottata</h4>
+      <p>L’intervento è stato concepito come una riqualificazione integrata dell’immobile, intervenendo sulle principali criticità riscontrate nello stato di fatto: degrado delle finiture e delle strutture esterne, infiltrazioni e fenomeni di umidità, impianti tecnologici inadeguati, infissi deteriorati, insufficiente ventilazione di alcuni ambienti e necessità di adeguare la distribuzione interna alle esigenze operative della Caserma. Una prima scelta progettuale è stata quella di limitare gli interventi al piano primo prevalentemente alla sostituzione degli infissi e delle tapparelle e alla revisione dei quadri elettrici, concentrando invece le trasformazioni più invasive al piano terra, dove sono localizzate le funzioni operative, logistiche e di servizio e dove erano presenti le maggiori criticità. Al piano terra sono stati quindi previsti il rifacimento degli impianti elettrico e idrico-sanitario, l’adeguamento antincendio, la climatizzazione, la ventilazione meccanica controllata, la ridefinizione di alcuni locali e la messa a norma delle camere di sicurezza. Per l’impiantistica si è privilegiata una soluzione che consentisse elevata manutenibilità e ridotta invasività. Le principali dorsali elettriche e impiantistiche sono state concentrate nel controsoffitto del corridoio centrale, limitando le tracce e le demolizioni all’interno dei singoli ambienti e rendendo più semplici future modifiche o manutenzioni. L’impianto elettrico è stato inoltre suddiviso in dieci quadri di zona, in modo da ottenere una maggiore selettività funzionale e poter intervenire su singole porzioni dell’edificio senza disalimentare l’intera struttura. La scelta della VMC decentralizzata segue lo stesso principio: ogni ambiente dispone di unità indipendenti, evitando una rete aeraulica estesa. Il sistema richiede essenzialmente un attraversamento della parete e l’alimentazione elettrica, riducendo le lavorazioni invasive e garantendo al contempo il necessario ricambio d’aria con recupero di calore. Questa soluzione è particolarmente coerente con gli infissi di sicurezza previsti al piano terra, nei quali la presenza dell’infisso esterno fisso antiproiettile e antieffrazione rende necessario assicurare meccanicamente il ricambio d’aria. Anche la scelta degli infissi deriva dalla particolare destinazione dell’edificio. Al piano terra è previsto un sistema a doppio infisso: quello esterno con caratteristiche di sicurezza antiproiettile e antieffrazione, con vetri BR5-NS conformi alla UNI EN 1063, e quello interno in alluminio a taglio termico. Nella zona di attesa sono inoltre previste superfici vetrate antisfondamento P4A, mentre tra sala d’attesa e uffici sono previste vetrate BR5. La modifica delle superfici finestrate consente contemporaneamente di migliorare i rapporti aeroilluminanti degli uffici. Per la copertura è stato scelto un sistema impermeabile in TPO armato, posato a secco sul pacchetto esistente, in luogo di ulteriori ripristini localizzati della guaina bituminosa. La soluzione è stata scelta per aumentare la durabilità, ridurre gli interventi manutentivi e predisporre correttamente la copertura all'installazione del fotovoltaico; il progetto prevede inoltre una finitura chiara ad elevata riflettanza, con SRI ≥ 100, quale contributo alla climatizzazione passiva dell'edificio. L'impianto fotovoltaico da 10 kW risponde invece all'obiettivo di contenere i consumi elettrici associati ai nuovi impianti tecnologici e di ridurre le emissioni di CO₂. All'esterno, la scelta più significativa riguarda la realizzazione di un nuovo accesso carrabile direttamente su Via Cesare Pavese. L'intervento consente di evitare, almeno per una parte dei movimenti della Caserma, l'attuale percorso sulla strada a senso unico interessata dalla congestione legata alla vicina scuola. Contestualmente sono stati riprogettati la viabilità interna, gli stalli, l'illuminazione, le recinzioni, la rete fognaria e il piazzale.<p>
+      <p>Mantenimento della Caserma in esercizio durante i lavori<p>
+      <p>La progettazione ha privilegiato soluzioni modulari e poco invasive, come la distribuzione degli impianti nei controsoffitti, la suddivisione dell’impianto elettrico in quadri di zona e l’adozione di sistemi VMC decentralizzati, così da facilitare manutenzione e gestione per singoli settori. Particolare attenzione è stata posta al mantenimento della Caserma in esercizio durante i lavori, prevedendo una cantierizzazione per fasi e comparti, con separazione dei percorsi di cantiere da quelli del personale e del pubblico e con interventi sugli impianti organizzati per zone, in modo da limitare le interruzioni delle attività. Tra i principali riferimenti normativi rientrano il D.Lgs. 81/2008 per la sicurezza dei cantieri, il D.M. 37/2008 per gli impianti, il D.P.R. 503/1996 per l’accessibilità, oltre alle norme UNI richiamate per infissi di sicurezza, sistemi anticaduta e impianti tecnologici.</p>
+      <h4>Esito</h4>
+      <p>L’iter di approvazione si è concluso in data 5 dicembre 2025, con Determinazione n. 1082 del Responsabile del 3° Settore Lavori Pubblici del Comune di Mugnano di Napoli.</p>
+      </div>`
+  },
+  l2: {
+    tag: 'Opere pubbliche · Progetto, DL e sicurezza',
+    title: '«Tortora, la porta della cultura calabrese»',
+    html: `
+      <h4>L'incarico</h4>
+      <p>Progettazione definitiva ed esecutiva, coordinamento della sicurezza in fase di progettazione ed esecuzione e direzione dei lavori, per il Comune di Tortora (CS). Importo complessivo dell'opera € 1.343.907,35; importo dei lavori aggiudicati € 445.582,71.</p>
+      <h4>Il problema da risolvere</h4>
+      <p>Riqualificare in modo unitario il centro storico e alcune aree esterne di Tortora, migliorandone qualità urbana, illuminazione, fruibilità e sostenibilità, operando però in un contesto sottoposto alle prescrizioni della Soprintendenza e modificato anche dagli effetti dell’alluvione del 13/10/2022, che aveva reso alcune aree non più idonee alle funzioni originariamente previste.</p>
+      <h4>La soluzione adottata</h4>
+      <p>Il progetto ha integrato interventi di riqualificazione estetica (rivestimenti di muretti e pavimentazioni), efficientamento della pubblica illuminazione (sostituzione dei corpi illuminanti), recupero degli spazi e sistemazione del verde (risistemazione degli spazi e piantumazione), privilegiando materiali e finiture coerenti con il contesto storico. In corso d’opera sono state recepite le prescrizioni SABAP mediante rimodulazione delle pavimentazioni, revisione dell’illuminazione artistica, ricollocazione della pensilina fotovoltaica e del bike sharing, adeguamento cromatico degli elementi e nuova distribuzione dei quadri elettrici per una gestione più efficiente e indipendente delle diverse zone.</p>
+      <h4>Esito</h4>
+      <p>[Tempi, collaudo, risultato.]</p>
+      <h4>Immagini dei lavori eseguiti</h4>
+      <div class="gallery">
+        <img src="img/Borgo_1.jpg" alt="«Tortora, la porta della cultura calabrese» — foto 1" loading="lazy">
+        <img src="img/Borgo_2.jpg" alt="«Tortora, la porta della cultura calabrese» — foto 2" loading="lazy">
+        <img src="img/Borgo_3.jpg" alt="«Tortora, la porta della cultura calabrese» — foto 3" loading="lazy">
+        <img src="img/Borgo_4.jpg" alt="«Tortora, la porta della cultura calabrese» — foto 4" loading="lazy">
+        <img src="img/Borgo_5.jpg" alt="«Tortora, la porta della cultura calabrese» — foto 5" loading="lazy">
+        <img src="img/Borgo_6.jpg" alt="«Tortora, la porta della cultura calabrese» — foto 6" loading="lazy">
+        </div>`
+  },
+  l3: {
+    tag: 'Opere pubbliche · Sicurezza',
+    title: 'Ex discarica di località Sicilione — Tortora',
+    html: `
+      <h4>L'incarico</h4>
+      <p>Coordinamento per la sicurezza in fase di esecuzione dei lavori di bonifica tramite messa in sicurezza permanente del sito dell'ex discarica, per il Comune di Tortora (CS). Importo dei lavori finanziato: € 1.647.871,57.</p>
+      <h4>Il problema da risolvere</h4>
+      <p>Gestire la sicurezza di un cantiere di bonifica caratterizzato dalla presenza di rifiuti interrati, movimentazioni di terreno, scavi e rimodellazione delle scarpate, con contemporaneo impiego di escavatori e autocarri. Il PSC ha dovuto quindi considerare, oltre ai rischi ordinari di cantiere, quelli connessi al possibile contatto con materiali contaminati, alla stabilità dei fronti di scavo, alla circolazione dei mezzi d’opera e alla separazione tra aree operative e zone già messe in sicurezza.</p>
+      <h4>La soluzione adottata</h4>
+      <p>La gestione della sicurezza è stata organizzata per fasi successive di lavorazione, definendo percorsi e aree di manovra dei mezzi ove necessario, delimitazioni delle zone operative, procedure per scavo, movimentazione e stendimento dei materiali e specifiche misure per le lavorazioni sulle scarpate. Sono stati previsti apprestamenti e DPI adeguati alle singole attività, procedure per limitare l’esposizione a polveri e materiali di origine non nota e il coordinamento delle interferenze tra mezzi, operatori e differenti lavorazioni eseguite contemporaneamente.</p>
+      <h4>Esito</h4>
+      <p>Intervento concluso con la messa in sicurezza permanente del sito. Nel 2018 la discarica di località Sicilione è stata riconosciuta come regolarizzata dalla Commissione Europea ed espunta dalla procedura d’infrazione comunitaria, a seguito della certificazione dell’avvenuta esecuzione degli interventi necessari alla messa a norma del sito. L’intervento è stato portato a compimento garantendo il coordinamento delle diverse fasi di bonifica e la gestione delle interferenze tra mezzi e lavorazioni, senza infortuni durante l’esecuzione delle opere.</p>
+      <h4>Immagini ed elaborati</h4>
+      <div class="gallery">
+        <img src="img/Sicilione_1.jpg" alt="Bonifica ex discarica di località Sicilione, Tortora — foto 1" loading="lazy">
+        <img src="img/Sicilione_2.jpg" alt="Bonifica ex discarica di località Sicilione, Tortora — foto 2" loading="lazy">
+        <img src="img/Sicilione_3.jpg" alt="Bonifica ex discarica di località Sicilione, Tortora — foto 3" loading="lazy">
+        <img src="img/Sicilione_4.jpg" alt="Bonifica ex discarica di località Sicilione, Tortora — foto 4" loading="lazy">
+        <img src="img/Sicilione_5.jpg" alt="Bonifica ex discarica di località Sicilione, Tortora — foto 5" loading="lazy">
+        <img src="img/Sicilione_6.jpg" alt="Bonifica ex discarica di località Sicilione, Tortora — foto 6" loading="lazy">
+        <img src="img/Sicilione_7.jpg" alt="Bonifica ex discarica di località Sicilione, Tortora — foto 7" loading="lazy">
+        <img src="img/Sicilione_8.jpg" alt="Bonifica ex discarica di località Sicilione, Tortora — foto 8" loading="lazy">
+        <img src="img/Sicilione_9.jpg" alt="Bonifica ex discarica di località Sicilione, Tortora — foto 9" loading="lazy">
+      </div>`
+  },
+  l4: {
+    tag: 'Strutture · Miglioramento sismico',
+    title: 'Miglioramento sismico di edificio in muratura — Tortora',
+    html: `
+      <h4>L'incarico</h4>
+      <p>Progettazione strutturale, direzione dei lavori e coordinamento della sicurezza in fase di esecuzione per il ripristino con miglioramento sismico di un edificio per civili abitazioni e magazzini in muratura nel centro storico di Tortora (CS), danneggiato dal sisma del 9 settembre 1998. Classe d'uso 2. Interventi ai sensi della L. 61/98 e della L. 266/99. Importo dei lavori: € 313.600,01.</p>
+      <h4>Il problema da risolvere</h4>
+      <p>[Stato del fabbricato, quadro fessurativo, vincoli del centro storico, convivenza con gli abitanti.]</p>
+      <h4>La soluzione adottata</h4>
+      <p>[Tecniche di consolidamento scelte e motivazione tecnica.]</p>
+      <h4>Esito</h4>
+      <p>[Durata dei lavori, verifiche finali.]</p>
+      <h4>Immagini ed elaborati</h4>
+      <div class="gallery">
+        <img src="img/UMI_1.jpg" alt="Miglioramento sismico edificio in muratura, Tortora centro storico — foto 1" loading="lazy">
+        <img src="img/UMI_2.jpg" alt="Miglioramento sismico edificio in muratura, Tortora centro storico — foto 2" loading="lazy">
+        <img src="img/UMI_3.jpg" alt="Miglioramento sismico edificio in muratura, Tortora centro storico — foto 3" loading="lazy">
+        <img src="img/UMI_4.jpg" alt="Miglioramento sismico edificio in muratura, Tortora centro storico — foto 4" loading="lazy">
+        <img src="img/UMI_5.jpg" alt="Miglioramento sismico edificio in muratura, Tortora centro storico — foto 5" loading="lazy">
+        <img src="img/UMI_6.jpg" alt="Miglioramento sismico edificio in muratura, Tortora centro storico — foto 6" loading="lazy">
+        <img src="img/UMI_7.jpg" alt="Miglioramento sismico edificio in muratura, Tortora centro storico — foto 7" loading="lazy">
+        <img src="img/UMI_8.jpg" alt="Miglioramento sismico edificio in muratura, Tortora centro storico — foto 8" loading="lazy">
+      </div>`
+  },
+  l5: {
+    tag: 'Privati · Efficienza energetica',
+    title: 'Villini in Praia a Mare — efficienza energetica',
+    html: `
+      <h4>L'incarico</h4>
+      <p>Co-progettazione, direzione dei lavori e coordinamento della sicurezza per opere di manutenzione straordinaria e ordinaria con interventi di efficienza energetica su villini in Praia a Mare (CS). Importo totale: € 913.687,50.</p>
+      <h4>Il problema da risolvere</h4>
+      <p>Gestire in parallelo più unità immobiliari interessate da interventi Superbonus, coordinando lavorazioni, imprese e forniture entro scadenze fiscali e operative particolarmente stringenti. La principale criticità era mantenere allineati avanzamento fisico, contabilità, documentazione tecnica e adempimenti necessari alla corretta maturazione delle agevolazioni.</p>
+      <h4>La soluzione adottata</h4>
+      <p>Le lavorazioni sono state organizzate per fasi e per singola unità, coordinando gli interventi sull’involucro edilizio e sugli impianti: isolamento termico, sostituzione degli infissi, adeguamento degli impianti di climatizzazione e integrazione con sistemi per la produzione di energia da fonti rinnovabili. La direzione lavori e il coordinamento della sicurezza sono stati impostati con programmazione delle squadre, verifica delle interferenze tra imprese e controllo continuo dell’avanzamento rispetto al cronoprogramma.</p>
+      <h4>Esito</h4>
+      <p>Completamento coordinato degli interventi sulle diverse unità, con miglioramento delle prestazioni energetiche degli edifici e gestione integrata delle attività tecniche, contabili e di cantiere connesse al Superbonus.</p>
+      <h4>Immagini ed elaborati</h4>
+      <div class="gallery">
+        <img src="img/H_1.jpg" alt="Efficientamento energetico villini, Praia a Mare — foto 1" loading="lazy">
+        <img src="img/H_2.jpg" alt="Efficientamento energetico villini, Praia a Mare — foto 2" loading="lazy">
+        <img src="img/H_3.jpg" alt="Efficientamento energetico villini, Praia a Mare — foto 3" loading="lazy">
+        <img src="img/H_4.jpg" alt="Efficientamento energetico villini, Praia a Mare — foto 4" loading="lazy">
+        <img src="img/H_5.jpg" alt="Efficientamento energetico villini, Praia a Mare — foto 5" loading="lazy">
+        <img src="img/H_6.jpg" alt="Efficientamento energetico villini, Praia a Mare — foto 6" loading="lazy">
+        <img src="img/H_7.jpg" alt="Efficientamento energetico villini, Praia a Mare — foto 7" loading="lazy">
+        <img src="img/H_8.jpg" alt="Efficientamento energetico villini, Praia a Mare — foto 8" loading="lazy">
+        <img src="img/H_9.jpg" alt="Efficientamento energetico villini, Praia a Mare — foto 9" loading="lazy">
+        <img src="img/H_10.jpg" alt="Efficientamento energetico villini, Praia a Mare — foto 10" loading="lazy">
+        <img src="img/H_11.jpg" alt="Efficientamento energetico villini, Praia a Mare — foto 11" loading="lazy">
+      </div>`
+  },
+  l6: {
+    tag: 'Opere pubbliche · Progetto di fattibilità tecnico-economica',
+    title: 'Ponte di attraversamento del torrente Fiumarella — Tortora',
+    html: `
+      <h4>L'incarico</h4>
+      <p>Progettazione di fattibilità tecnico-economica per il Comune di Tortora (CS), per la realizzazione di un nuovo ponte di attraversamento sul torrente Fiumarella. Importo totale: € 603.394,90.</p>
+      <h4>Il problema da risolvere</h4>
+      <p>Le aree ai due lati del torrente, servite da Via Fiume e Via Benefici, non erano collegate direttamente: i percorsi alternativi allungavano la viabilità locale e ne limitavano l'accessibilità.</p>
+      <h4>La soluzione adottata</h4>
+      <p>Ponte a campata unica in acciaio Corten, con carreggiata a due corsie e passerella pedonale laterale. La scelta del Corten, che sviluppa una patina protettiva superficiale, riduce la manutenzione nel tempo e integra la struttura nel contesto paesaggistico del torrente.</p>
+      <h4>Esito</h4>
+      <p>Iter di approvazione concluso con esito positivo, come da verbale del 02/03/2026.</p>
+      <h4>Immagini ed elaborati</h4>
+      <div class="gallery">
+        <img src="img/Ponte_1.jpg" alt="Ponte sul torrente Fiumarella, Tortora — foto 1" loading="lazy">
+        <img src="img/Ponte_2.jpg" alt="Ponte sul torrente Fiumarella, Tortora — foto 2" loading="lazy">
+      </div>`
+  },
+  l7: {
+    tag: 'Opere pubbliche · Sicurezza',
+    title: 'Scuola media di Corso Garibaldi — Tortora',
+    html: `
+      <h4>L'incarico</h4>
+      <p>Coordinamento per la sicurezza in fase di esecuzione dei lavori di messa in sicurezza e adeguamento a norma dell'edificio scolastico in materia di agibilità, sicurezza, igiene ed eliminazione delle barriere architettoniche, per il Comune di Tortora (CS). Finanziamento dei lavori: € 452.000,00.</p>
+      <h4>Il problema da risolvere</h4>
+      <p>Gestire un cantiere all’interno di un edificio scolastico, coordinando lavorazioni differenti e limitando al minimo le interferenze con le attività della scuola. La principale criticità era programmare le fasi più invasive in funzione del calendario scolastico, mantenendo separati i percorsi di cantiere da quelli destinati a studenti e personale.</p>
+      <h4>La soluzione adottata</h4>
+      <p>Il cantiere è stato organizzato per fasi successive e per aree funzionali, con delimitazione delle zone di lavoro, controllo degli accessi, percorsi protetti e programmazione delle lavorazioni maggiormente interferenti nei periodi di minore presenza dell’utenza scolastica. Particolare attenzione è stata dedicata al coordinamento tra imprese, alla gestione delle lavorazioni contemporanee e alle misure di sicurezza connesse agli interventi di adeguamento, eliminazione delle barriere architettoniche e messa a norma dell’edificio.</p>
+      <h4>Esito</h4>
+      <p>L’organizzazione per fasi ha consentito di coordinare l’esecuzione degli interventi con le esigenze dell’attività scolastica, portando a compimento le opere di messa in sicurezza e adeguamento dell’edificio nel rispetto delle condizioni operative previste dal cantiere.</p>
+      <h4>Immagini ed elaborati</h4>
+      <div class="gallery">
+        <img src="img/Garib_1.jpg" alt="Scuola media di Corso Garibaldi, Tortora — foto 1" loading="lazy">
+        <img src="img/Garib_2.jpg" alt="Scuola media di Corso Garibaldi, Tortora — foto 2" loading="lazy">
+      </div>`
+  },
+  privacy: {
+    tag: 'Informativa ai sensi degli artt. 13-14 del Regolamento UE 2016/679',
+    title: 'Informativa privacy',
+    html: `
+      <h4>Titolare del trattamento</h4>
+      <p>Ing. Radames Riccardi, con studio in Via Nazionale, 46 — 87020 Tortora (CS), P.IVA 03349790786. Contatti: riccardi.radames@outlook.it · PEC radames.riccardi@ingpec.eu.</p>
+      <h4>Dati raccolti</h4>
+      <p>Questo sito non utilizza moduli di contatto, cookie di profilazione né strumenti di tracciamento o analisi statistica. I soli dati personali trattati sono quelli che l'utente fornisce volontariamente scrivendo via e-mail, PEC, telefono o WhatsApp (nome, recapiti, contenuto della richiesta).</p>
+      <p>Il sito carica i caratteri tipografici dai server Google Fonts: il browser dell'utente comunica con tali server, che possono ricevere l'indirizzo IP della richiesta secondo le rispettive policy di Google.</p>
+      <h4>Finalità e base giuridica</h4>
+      <p>I dati forniti tramite contatto diretto sono trattati per rispondere alla richiesta e, se necessario, per l'esecuzione di misure precontrattuali o contrattuali relative a un incarico professionale (art. 6, par. 1, lett. b e f, GDPR).</p>
+      <h4>Conservazione</h4>
+      <p>I dati sono conservati per il tempo necessario a gestire la richiesta e, in caso di incarico professionale, per i termini previsti dalla normativa civilistica, fiscale e deontologica applicabile.</p>
+      <h4>Comunicazione a terzi</h4>
+      <p>I dati non sono ceduti a terzi per finalità commerciali. Possono essere comunicati a soggetti terzi (es. consulenti, enti pubblici, altri professionisti) solo se necessario all'esecuzione dell'incarico o per obbligo di legge.</p>
+      <h4>Diritti dell'interessato</h4>
+      <p>L'utente può richiedere in qualsiasi momento l'accesso, la rettifica, la cancellazione o la limitazione del trattamento dei propri dati, opporsi al trattamento e richiederne la portabilità, scrivendo ai contatti sopra indicati. È inoltre possibile proporre reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it).</p>
+      <p class="muted" style="margin-top:20px;font-size:13px">Questo testo è una bozza informativa predisposta a scopo organizzativo: prima della pubblicazione definitiva si consiglia una verifica da parte di un consulente privacy o legale, per adeguarla a eventuali strumenti aggiuntivi (form, cookie, newsletter) che dovessero essere introdotti in futuro.</p>`
+  }
+};
+
+const sheet = document.getElementById('sheet');
+let lastFocus = null;
+function openSheet(key){
+  const d = schede[key]; if (!d) return;
+  lastFocus = document.activeElement;
+  document.getElementById('sheet-tag').textContent = d.tag;
+  document.getElementById('sheet-title').textContent = d.title;
+  document.getElementById('sheet-body').innerHTML = d.html;
+  sheet.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('sheet-close').focus();
+}
+function closeSheet(){
+  sheet.classList.remove('open');
+  document.body.style.overflow = '';
+  if (lastFocus) lastFocus.focus();
+}
+document.querySelectorAll('[data-sheet]').forEach(b =>
+  b.addEventListener('click', e => { e.preventDefault(); openSheet(b.dataset.sheet); }));
+document.getElementById('sheet-close').addEventListener('click', closeSheet);
+sheet.addEventListener('click', e => { if (e.target === sheet) closeSheet(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && sheet.classList.contains('open')) closeSheet();
+});
+
+/* ---------- scheda contatto .vcf ---------- */
+function scaricaVCard(){
+  const vcf = [
+    'BEGIN:VCARD',
+    'VERSION:3.0',
+    'N:Riccardi;Radames;;Ing.;',
+    'FN:Ing. Radames Riccardi',
+    'TITLE:Ingegnere Civile',
+    'ORG:Riccardi — Studio di Ingegneria',
+    'TEL;TYPE=CELL:+393478355428',
+    'EMAIL;TYPE=WORK:riccardi.radames@outlook.it',
+    'EMAIL;TYPE=WORK:radames.riccardi@ingpec.eu',
+    'ADR;TYPE=WORK:;;Via Nazionale 46;Tortora;CS;87020;Italia',
+    'NOTE:Ordine degli Ingegneri della Provincia di Napoli n. 20926 — Progettazione strutturale, direzione dei lavori, coordinamento della sicurezza. P.IVA 03349790786',
+    'END:VCARD'
+  ].join('\r\n');
+  const url = URL.createObjectURL(new Blob([vcf], { type: 'text/vcard;charset=utf-8' }));
+  const a = document.createElement('a');
+  a.href = url; a.download = 'radames-riccardi.vcf';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1500);
+}
+document.getElementById('vcard-btn').addEventListener('click', scaricaVCard);
+document.querySelectorAll('[data-vcard]').forEach(b => b.addEventListener('click', scaricaVCard));
+</script>
+</body>
+</html>
