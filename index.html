@@ -227,6 +227,7 @@ p{margin:0 0 18px;max-width:60ch}
 .row-txt b{display:block;font-family:var(--display);font-weight:400;font-size:20px;line-height:1.3}
 .row-txt span{display:block;font-family:var(--ui);font-weight:300;font-size:12px;
   letter-spacing:.06em;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row-txt span.li-summary{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.6;margin-top:4px}
 .row-arrow{color:var(--gold);font-size:15px;font-family:var(--ui)}
 
 /* ======================= footer ======================= */
@@ -725,14 +726,14 @@ new IntersectionObserver(([e]) => bar.classList.toggle('show', !e.isIntersecting
 const linkedinArticles = [
   { title: 'Terremoto in Colombia: perché la magnitudo non basta a spiegare il danno', date: '11 agosto 2026', url: 'https://www.linkedin.com/pulse/terremoto-colombia-perch%25C3%25A9-la-magnitudo-non-basta-il-danno-riccardi-xbp2f/?trackingId=c%2Bd%2FCgDL0plVuR1B%2F00CeQ%3D%3D', summary: 'Magnitudo 7,4, ipocentro a circa 100 km di profondità: in teoria un terremoto così profondo arriva in superficie attenuato. Eppure in Colombia il bilancio supera le 170 vittime, con danni gravi in città distanti decine di chilometri tra loro. Nell’articolo analizzo perché la magnitudo, da sola, non spiega il danno: contano la catena sorgente–propagazione–sito–struttura e, soprattutto, l’età del costruito rispetto alle norme sismiche. Un tema che riguarda la Colombia quanto l’Italia.' },
   { title: 'Dai satelliti alla previsione degli spostamenti: l’InSAR incontra il deep learning', date: '17 agosto 2026', url: 'https://www.linkedin.com/pulse/dai-satelliti-alla-previsione-degli-spostamenti-linsar-riccardi-k7dve/?trackingId=kG6mouoe9Rp1%2FxAIQltHDQ%3D%3D', summary: 'Un modello che integra InSAR e deep learning per prevedere gli spostamenti di una frana, testato su oltre 1.400 scene satellitari e sei casi con meccanismi diversi (sismico, pluviometrico, idrico). Risultati solidi, ma gli stessi autori sono chiari su un punto: questo non è un sistema di allerta, e lo dichiarano esplicitamente. Nell’articolo il motivo per cui questa distinzione conta più dei numeri.' },
-  { title: '[Titolo articolo]', date: '[data]', url: '[LINK]', summary: '[sintesi]' }
+  { title: '[Titolo terzo articolo]', date: '[data pubblicazione]', url: '[LINK_ARTICOLO_LINKEDIN_3]', summary: '[una riga di sintesi]' }
 ];
 
 function renderLinkedinRows(){
   return linkedinArticles.map(a => `
       <a class="row" href="${a.url}" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M4 9h3v11H4zM5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM10 20V9h3v1.6c.7-1.1 1.9-1.8 3.4-1.8 2.5 0 3.6 1.6 3.6 4.4V20h-3v-6c0-1.6-.6-2.4-1.9-2.4-1.2 0-2.1.8-2.1 2.4v6z"/></svg>
-        <span class="row-txt"><b>${a.title}</b><span>${a.date} · ${a.summary}</span></span>
+        <span class="row-txt"><b>${a.title}</b><span class="li-summary">${a.date} · ${a.summary}</span></span>
         <span class="row-arrow">→</span>
       </a>`).join('');
 }
