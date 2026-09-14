@@ -710,7 +710,7 @@ sections.forEach(s => s && spy.observe(s));
 
 /* ---------- comparsa in scroll ---------- */
 const reveal = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); reveal.unobserve(e.target); } });https://github.com/Radames1987/portfolio-riccardi/blob/main/index.html
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); reveal.unobserve(e.target); } });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => reveal.observe(el));
 
